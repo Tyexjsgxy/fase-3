@@ -1,39 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <title>Fase 4</title>
+  <meta charset="UTF-8" />
+  <title>Convite Secreto - Fase 4</title>
   <style>
     body {
-      background-color: #000;
-      color: #0f0;
+      background-color: black;
+      color: lime;
       font-family: monospace;
       text-align: center;
-      padding-top: 60px;
+      padding: 60px 20px;
     }
-
     img {
       max-width: 80%;
       margin-top: 30px;
-      border: 2px solid #0f0;
+      border: 2px solid lime;
     }
-
-    .hidden-clue {
-      display: none;
+    input, button {
+      font-size: 1em;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #111;
+      border: 1px solid lime;
+      color: lime;
+    }
+    button:hover {
+      background-color: lime;
+      color: black;
+      cursor: pointer;
+    }
+    #message {
+      margin-top: 15px;
+      color: red;
     }
   </style>
 </head>
 <body>
-  <h1>FASE 4</h1>
-  <p>Nada é o que parece.</p>
+  <h1>🎉 Parabéns!</h1>
+  <p>Você decifrou a pista e encontrou o convite secreto.</p>
+  <p>Quer entrar para o <strong>Clube dos Enigmáticos</strong>?</p>
 
-  <img src="fase-3/enigmatico.jpg" alt="analisa bem...">
+  <img src="enigmatico.jpg" alt="analisa bem...">
 
-  <!-- A senha está nos metadados -->
-  <!-- dica: usa exif.tools -->
+  <input type="text" id="passwordInput" placeholder="Digite a senha">
+  <button onclick="checkPassword()">Confirmar presença</button>
+  <div id="message"></div>
 
-  <div class="hidden-clue">
-    senha: horizonte
-  </div>
+  <script>
+    function checkPassword() {
+      const input = document.getElementById('passwordInput').value.trim().toLowerCase();
+      const message = document.getElementById('message');
+
+      if (input === "horizonte") {  // senha escondida na imagem
+        window.location.href = "convite.html"; // próxima página
+      } else {
+        message.textContent = "Senha incorreta. Tente novamente.";
+      }
+    }
+  </script>
 </body>
 </html>
