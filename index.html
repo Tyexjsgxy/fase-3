@@ -18,52 +18,55 @@
       text-align: center;
     }
 
-    .container {
-      max-width: 800px;
-      padding: 20px;
+    input[type="text"] {
+      margin-top: 20px;
+      padding: 8px;
+      font-size: 1em;
+      background-color: #1a1a1a;
+      border: 1px solid #888;
+      color: #e0e0e0;
     }
 
-    h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      cursor: pointer;
     }
 
-    .symbol {
-      font-size: 3em;
-      margin-bottom: 10px;
+    button:hover {
+      background-color: #666;
     }
 
-    .clue {
-      font-size: 1.1em;
-      margin-top: 30px;
-      white-space: pre-wrap;
-    }
-
-    .footer {
-      margin-top: 40px;
-      font-size: 0.8em;
-      color: #888;
+    .message {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: red;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="symbol">👁️</div>
-    <h1>INITIATION // FASE 3</h1>
+  <h1>👁️ FASE 3</h1>
+  <p>A próxima fase já começou.<br>Mas nem todos conseguem ouvi-la.</p>
+  <p><code>FRZDUGV DUH IXQ WR FUDFN</code></p>
 
-    <div class="clue">
-A próxima fase já começou.
-Mas nem todos conseguem ouvi-la.
+  <input type="text" id="passwordInput" placeholder="Digite a senha">
+  <button onclick="checkPassword()">Entrar</button>
+  <div class="message" id="message"></div>
 
-FRZDUGV DUH IXQ WR FUDFN
+  <script>
+    function checkPassword() {
+      const input = document.getElementById('passwordInput').value.trim().toLowerCase();
+      const message = document.getElementById('message');
 
-Quem entende o silêncio, avança.
-    </div>
-
-    <div class="footer">
-      © 2025 • Observe. Decode. Advance.
-    </div>
-  </div>
+      if (input === "labirinto") {
+        window.location.href = "fase4.html";
+      } else {
+        message.textContent = "Senha incorreta. Tenta outra vez.";
+      }
+    }
+  </script>
 </body>
 </html>
